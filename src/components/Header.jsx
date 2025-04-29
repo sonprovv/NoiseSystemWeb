@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
-import { Bell, Settings, User } from 'lucide-react';
+import { Bell, Settings } from 'lucide-react';
 import NotificationsPanel from './NotificationsPanel';
 import SettingsPanelHeader from './SettingsPanelHeader';
 
-const Header = ({ setThreshold }) => {
+const Header = ({ setThreshold, alerts }) => {
   const [showSettings, setShowSettings] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
 
-  const notifications = [
-    { id: 1, message: "Noise level exceeded 85 dB at 10:30 AM", time: "10:30 AM" },
-    { id: 2, message: "System check completed", time: "9:15 AM" },
-  ];
+  const notifications = alerts.map((alert, index) => ({
+    id: index,
+    message: `Noise level exceeded ${alert.level} dB`,
+    time: alert.time,
+  }));
+  
 
   // Handler cho Settings
   const handleSettingsClick = () => {
@@ -62,11 +64,6 @@ const Header = ({ setThreshold }) => {
               />
             )}
           </div>
-
-          {/* User Icon */}
-          <button className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-            <User className="w-6 h-6 text-gray-600 dark:text-gray-300" />
-          </button>
         </div>
       </div>
     </header>

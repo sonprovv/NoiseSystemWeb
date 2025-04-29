@@ -2,7 +2,7 @@ import React from 'react';
 
 const NotificationsPanel = ({ notifications, onClose }) => {
   return (
-    <div className="absolute right-0 mt-2 w-72 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 z-10 transition-colors duration-200">
+    <div className="absolute top-16 right-4 z-50 bg-white dark:bg-gray-800 shadow-lg rounded-lg w-80 p-4 max-h-96 overflow-y-auto border border-gray-300 dark:border-gray-700">
       <div className="p-4">
         <div className="flex justify-between items-center">
           <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
